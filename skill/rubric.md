@@ -43,7 +43,11 @@ packages designed around that family.
 
 | Check | Evidence | Pass condition | Weight |
 |---|---|---|---|
-|  |  |  |  |
+| Environment | The report's setup/environment section read against the issue's stated targets. | The OS, tool versions, and dependencies are explicitly listed and match the issue context (or differences are noted). | required |
+| Steps | The procedural steps in the report. | Commands or actions are sequential, complete from a fresh start, and a stranger could copy-paste or follow them exactly. | required |
+| Behavior | The artifacts (logs, terminal output, screenshots) in the report read against the original issue description. | The artifact explicitly shows the exact error described in the issue, OR it shows normal/working behavior that fully supports an honest "cannot reproduce" claim. | required |
+| Honesty | The claim/conclusion in the report read against the provided artifacts. | The author claims a successful reproduction *only* if the artifacts prove it; if the bug didn't happen, the report explicitly states "could not reproduce" alongside evidence of the success. | required |
+| Conventions | The text of the claim comment and report read against the repo's `CONTRIBUTING.md` or AI policy in the repo-facts. | The author includes an explicit AI-assistance disclosure if the repo requires it, and uses the repo's standard issue template if one exists. | required |
 
 ## Verdict rule
 
@@ -51,3 +55,5 @@ packages designed around that family.
 unclear is treated. Example shape (write your own): "accept if every
 required check passes; preferred checks never change the verdict;
 unclear counts as fail." -->
+
+Accept if all required checks pass. Reject if any required check fails. Treat `unclear` as a fail. Preferred checks never change the verdict.
